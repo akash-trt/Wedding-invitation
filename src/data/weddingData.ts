@@ -1,4 +1,4 @@
-import w1 from './w1.jpg';
+import w1 from './W1.jpg';
 import w2 from './w2.jpg';
 import w3 from './w3.jpg';
 import w4 from './w4.jpg';
