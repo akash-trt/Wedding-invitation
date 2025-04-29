@@ -69,6 +69,12 @@ function App() {
 
     addAnimationClasses();
   }, []);
+  useEffect(() => {
+    const audio = new Audio('src/data/wedSound.mp3');
+    audio.loop = true;
+    audio.play();
+  }, []);
+  
 
   return (
     <div className="font-sans">
