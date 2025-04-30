@@ -70,9 +70,24 @@ function App() {
     addAnimationClasses();
   }, []);
   useEffect(() => {
-    const audio = new Audio('src/data/wedSound.mp3');
+    const audio = new Audio('data/wedSound.mp3');
     audio.loop = true;
-    audio.play();
+  
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (err) {
+        console.log('Autoplay was prevented. Waiting for user interaction.');
+        // Optional: Add listener to play audio after first user interaction
+        const resumeAudio = async () => {
+          await audio.play();
+          document.removeEventListener('click', resumeAudio);
+        };
+        document.addEventListener('click', resumeAudio);
+      }
+    };
+  
+    playAudio();
   }, []);
   
 
